@@ -312,7 +312,7 @@ def main():
                                 imagename = "Image" + str(rand)
                                 imagenameExtention = imagename + ".png"
                                 secret.save(imagenameExtention)
-                                st.success(imagenameExtention + " Save Successfully")
+                                st.success(imagenameExtention + " Image Create Successfully")
                                 st.title('Encode Image')
 
                                 def get_binary_file_downloader_html(bin_file, file_label='File'):
