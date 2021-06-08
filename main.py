@@ -57,19 +57,12 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# This is another section
-
 HTML_BANNER = """
     <div style="background-color:#464e5f;padding:10px;border-radius:10px">
     <h1 style="color:white;text-align:center;">SteganoFix</h1>
     <p style="color:white;text-align:center;">Built with Streamlit</p>
     </div>
     """
-
-
-# Security
-# passlib,hashlib,bcrypt,scrypt
-
 
 def make_hashes(password):
     return hashlib.sha256(str.encode(password)).hexdigest()
@@ -81,14 +74,9 @@ def check_hashes(password, hashed_text):
     return False
 
 
-# DB Management
-
-
 conn = sqlite3.connect('data.db', check_same_thread=False)
 c = conn.cursor()
 
-
-# DB  Functions
 def create_users_table():
     c.execute('CREATE TABLE IF NOT EXISTS users_table(email NVARCHAR,username VARCHAR,password VARCHAR, '
               'account_creation_date DATE)')
@@ -167,7 +155,6 @@ def delete_user_data():
         st.warning("Deleted: '{}'".format(delete_by_email))
     with st.beta_expander("Updated Data"):
         result = view_all_users()
-        # st.write(result)
         clean_df = pd.DataFrame(result, columns=["Email", "Username", "Password", "Account Creation Date"])
         st.dataframe(clean_df)
 
@@ -191,7 +178,6 @@ def main():
     st.image(image, width=750)
 
     if choice == "Home":
-        # st.subheader("Home")
         st.subheader("Steganography:")
         st.write("Steganography is the art of concealing information. In computer science, "
                  "it refers to hiding data within a message or file. It serves a similar "
@@ -201,7 +187,6 @@ def main():
                  "'invisible' ink that can only be seen when another ink or liquid is applied "
                  "to the paper. Similarly, in digital steganography, the goal is to hide information "
                  "from users except those who are meant to see or hear it.")
-        # st.subheader("Nothing Looks Suspicious")
 
         if st.checkbox("History"):
             st.subheader("History:")
@@ -453,7 +438,6 @@ def main():
                 task = st.selectbox("Task", ["Select option", "Profiles"])
                 if task == "Profiles":
                     st.subheader("Users Profiles")
-                    # user_result = view_all_users()
                     user_result = view_user_record()
                     clean_db = pd.DataFrame(user_result,
                                             columns=["Email", "Username", "Account_Creation_Date"])
