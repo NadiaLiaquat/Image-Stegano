@@ -172,7 +172,7 @@ def main():
 
     st.title("Steganography Free App")
 
-    menu = ["Home", "Login", "SignUp", "User's Guid", "Admin", "About"]
+    menu = ["Home", "Login", "SignUp", "User's Guide", "Admin", "About"]
     choice = st.sidebar.selectbox("Menu", menu)
     image = Image.open('steg3.jpg')
     st.image(image, width=750)
@@ -340,7 +340,7 @@ def main():
             st.balloons()
             st.info("Go to Login Menu to login")
 
-    elif choice == "User's Guid":
+    elif choice == "User's Guide":
         st.subheader("How To Use this Tool")
         options = ["IF You are New User", "IF Your  Account Already Exit"]
         choice = st.radio("Choose the Operation", options)
